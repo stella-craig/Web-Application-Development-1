@@ -1,0 +1,32 @@
+/* styles.css */
+body {
+    margin: 10px;
+}
+
+h1 {
+    background-color: #aaeadb;
+    color: green;
+    padding: 10px;
+    margin: 0;
+}
+
+p {
+    background-color: #ffadad;
+    color: white;
+    padding: 10px;
+    width: 750px;
+    margin: 0;
+    border: 5px solid #333;
+}
+
+
+table {
+    width: 750px;
+    margin: 0;
+    border: 5px solid #333;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #333;
+}
