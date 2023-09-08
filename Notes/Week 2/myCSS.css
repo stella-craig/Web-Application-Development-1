@@ -1,0 +1,33 @@
+/*CSS Example for index.html*/
+
+h1 {
+    color: red;
+    text-align: center;
+}
+p {
+    padding: auto;
+    margin: top 50px;
+    margin-left: 10px;
+}
+/*class*/
+.first {
+    float: right;
+    width: 50%;
+    height: 200px;
+    width: 40%;
+    background-color: beige;
+}
+
+/*means EVERYTHING will be effected by whats in here*/
+* {
+    margin: 20px;
+}
+
+/*id*/
+#parag {
+    height: 200px;
+    width: 40%;
+    background-color: aqua;
+    float: left;
+
+}
