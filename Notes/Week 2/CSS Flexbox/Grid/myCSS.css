@@ -1,0 +1,78 @@
+/*CSS for index.html*/
+
+div {
+    border: 1px solid black;
+}
+
+#myDiv {
+    /*flexbox*/
+    display: flex;
+    flex-direction: row;
+    /*evenly spaces out the content*/
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.grid-container {
+    /* justify-content: center;
+    align-content: center;
+    height: 100vh;
+    justify-items: center;
+    align-items: center; */
+
+    display: grid;
+
+    /* grid columns: */
+    /*fr means fraction*/
+    grid-template-columns: 1fr 2fr;
+    /*4 columns, each at 100 px*/
+    /* grid-template-columns: repeat(4, 100px); */
+
+    /* grid rows */
+    /* the size of the rows are at minimum 150px and at maximum they are auto filled to whatever size they need */
+    grid-template-rows: minmax(150px, auto);
+
+    /* create tracks aka space between the boxes */
+    grid-gap: 20px;
+    /* grid-row-gap: 20px; */
+
+    /* grid-template-areas: 
+        "header header"
+        "sidebar content"
+        "sidebar content"; */
+}
+
+.grid-item-1 {
+    /* grid-area: header; */
+
+    /* or */
+
+    /* grid-column-start: 1; */
+    /* grid-column-end: 3; */
+    /*grid-column-end: -1; */
+
+    /* or */
+
+    grid-column: span 2;
+}
+
+.grid-item-2 {
+    /* grid-area: sidebar; */
+
+    /* or */
+    
+    /* grid-row-start: 2;
+    grid-row-end: 4; */
+
+    /* or */
+
+    grid-row: span 2;
+}
+
+.grid-item-3 {
+    /* grid-area: content; */
+
+    /* or */
+
+    grid-row: span 3;
+}
