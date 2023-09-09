@@ -1,0 +1,65 @@
+.list {
+    padding: 10px;
+    margin: 0px;
+
+}
+
+div{
+    background-color: bisque;
+    /* display: inline; */
+    width: 100px;
+    height: 150px;
+    transition: 10s;
+    float: inline-start;
+}
+
+div:hover {
+    width: 300px;
+    background-color: beige;
+
+}
+
+.btn2 {
+    background-color: aqua;
+    color: aliceblue;
+    width: 20%;
+    border: none;
+}
+
+.btn2:active {
+    background-color: #3eBe41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.btn2:hover {
+    background-color: aquamarine;
+}
+
+.btn {
+    color: aliceblue;
+    background-color: blue;
+    border: none;
+    width: 20%;
+    animation-name: btnAnim;
+    animation-duration: 10s;
+}
+
+@keyframes btnAnim {
+    from{background-color: blue;} 
+    to{background-color: yellow;}   
+}
+
+p {
+    border: 20px solid black;
+    outline: rgb(113, 59, 212) solid 10px;
+    margin-top: 100px;
+    padding: 20px;
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+}
+
+.col {
+    column-count: 3;
+}
