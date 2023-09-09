@@ -41,8 +41,8 @@ are also some buttons from which you can choose your favorite movie. Each of tho
 My bias can be found as the "wrong" choices start to disappear over time, which shows off CSS animation. Also, if you hover over the 
 film reel image, it will slowly start to grow, showing off CSS transitions. There is also a back button that is animated.
 ![image](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/3bff3763-53cf-4fbe-b0bb-544588d5800e)
-![image](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/f912b17a-1af5-4aa2-94e0-7260d5e6c98e)
 
+![4](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/f843471f-d9fe-4bb7-b64c-87f3492ed36f)
 
 
 
