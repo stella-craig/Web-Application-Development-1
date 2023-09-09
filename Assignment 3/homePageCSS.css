@@ -1,0 +1,18 @@
+table, td {
+    padding: 10px;
+    border: 1px solid;
+    text-align: center;
+    /* justify-content: space-between; */
+    background-color: gainsboro;
+}
+
+table {
+    table-layout: fixed;
+    column-count: 3;
+    margin: auto;
+    width: 50%;
+}
+
+h1 {
+    text-align: center;
+}
