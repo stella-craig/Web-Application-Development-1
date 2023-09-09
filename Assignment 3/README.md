@@ -27,21 +27,22 @@ You must have a navigation link to bring you back to the homepage.
 ## Pages
 ### Home Page
 This is the landing page. It has a title and links to connect to other HTML pages to learn more.
-![image](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/15809b1d-ef85-4fe6-8a0b-ead9420cc6cf)
+![1](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/72864c7d-31d1-4afa-a642-dfcd13b74f84)
+
 
 ### About Page
 This page has more information about the importance of movies. This article was not written by me and 
 is not being used for commercial purposes. It is simply a placeholder to highlight the formatting. The content
 fills two columns. There is a link to go back to the homepage that is interactive.
-![image](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/0c4f73d7-8801-44cd-9a40-a011d219e959)
+![2](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/b8b9ab7e-0adc-4e68-bb9f-3a40d3abc5fe)
+
 
 ### User Info Page
 This page is the most interactive for the user. There is a form to fill out with your name and your favorite movie. There 
 are also some buttons from which you can choose your favorite movie. Each of those buttons includes an alert. 
 My bias can be found as the "wrong" choices start to disappear over time, which shows off CSS animation. Also, if you hover over the 
 film reel image, it will slowly start to grow, showing off CSS transitions. There is also a back button that is animated.
-![image](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/3bff3763-53cf-4fbe-b0bb-544588d5800e)
-
+![3](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/8d6a3071-d99a-444d-b513-813b5ca6c98b)
 ![4](https://github.com/stella-craig/Web-Application-Development-1/assets/112723364/f843471f-d9fe-4bb7-b64c-87f3492ed36f)
 
 
