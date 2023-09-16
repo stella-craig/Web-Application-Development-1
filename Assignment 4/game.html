@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="game.css">
+        <title>Stella Craig</title>
+    </head>
+    <body>
+
+        <h1 id="header">Fruit Game</h1>
+        <img id="image" src"" alt="Fruit Image">
+        
+        <p id="correctness"></p>
+        <p id="solution"></p>
+        
+
+        <table>
+            <tr>
+                <td><button onclick="guess('Apple')" id="buttons">Apple</button></td>
+                <td><button onclick="guess('Orange')" id="buttons">Orange</button></td>
+                <td><button onclick="guess('Pear')" id="buttons">Pear</button></td>
+                <td><button onclick="guess('Pineapple')" id="buttons">Pineapple</button></td>
+            </tr>
+        </table>
+        
+        
+        <button id="nGameButton" style="display: none;"  onclick="newGame()">Play Again</button>
+        
+        <script src="gamejs.js" async defer></script>
+    </body>
+</html>
