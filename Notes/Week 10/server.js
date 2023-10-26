@@ -16,3 +16,4 @@ app.get('/register', (req, res) => res.render('register.ejs'))
 app.post('/register', (req, res) => {
     req.body.email
 })
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
