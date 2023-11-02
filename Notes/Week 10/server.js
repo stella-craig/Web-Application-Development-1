@@ -96,3 +96,8 @@ app.get('/register', checkNotAuthenticated, async (req, res) => {
     console.log(usrs)
 })
 //logs usr out
+app.delete('/logout', (req, res) => {
+    req.logOut()
+    res.redirect('/login')
+})
+//function for verifying
