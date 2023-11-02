@@ -71,3 +71,28 @@ app.get('/login', checkNotAuthenticated, (req, res) => {
 app.use(express.static('public'))
 app.use('/css', express.static(_dirname + 'public/CSS'))
 app.use('/js', express.static(_dirname + 'public/JS'))
+
+//uses post to login and send to the index.js
+app.post('/login', checkNotAuthenticated, passport.authenticated('local', {
+    sucessRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+}))
+
+//renders out the register.ejs if not authenticated
+app.get('/register', checkNotAuthenticated, async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 8)
+        usrs.push({
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        })
+        res.redirect('/login')
+    } catch {
+        res.redirect('/register')
+    }
+    console.log(usrs)
+})
+//logs usr out
