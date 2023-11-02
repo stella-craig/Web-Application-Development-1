@@ -40,4 +40,34 @@ createPassport(
     passport,
     email => usrs.find(user => user.email === email),
     id => usrs.find(user => user.id === id)
-)
+) //intialized function that is initialize(passport, getUserByEmail, getUserById)
+
+//looks for the ejs file in the view folder
+app.set('view-engine', 'ejs')
+app.use(express.urlencoded({ extended: false }))
+//to send warnings that the password is incorrect
+app.use(flash())
+//used to save information on the server
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUnitialized: false
+}))
+//calls the function from the passportConfig.js
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
+
+//used to check the name with is visible to the user
+app.get('/', checkAuthenticated, (req, res) => {
+    res.render('index.ejs', { name: req.user.name })
+})
+
+app.get('/login', checkNotAuthenticated, (req, res) => {
+    res.render('login.ejs')
+})
+
+//1. accesses the css and the js files in the public folder
+app.use(express.static('public'))
+app.use('/css', express.static(_dirname + 'public/CSS'))
+app.use('/js', express.static(_dirname + 'public/JS'))
