@@ -101,3 +101,22 @@ app.delete('/logout', (req, res) => {
     res.redirect('/login')
 })
 //function for verifying
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+
+    res.redirect('/login')
+}
+//function checks authentication and redirects to index.ejs
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/')
+    }
+    next()
+}
+
+
+//listens on port 3000 that we created for our localhost
+app.listen(port, () => console.log('Example app listening on port ${port}!'))
+
