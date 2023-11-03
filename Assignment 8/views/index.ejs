@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Tic Tac Toe Game</title>
+        <meta name="description" content="A simple tic tac toe game">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/indexCSS.css">
+    </head>
+    <body>
+        <h1>Hi <%= name %></h1>
+        <p id="player-turn">Current Player: X</p> 
+
+        <div style="text-align: center;">
+            <button id="btn-reset">Reset Board</button>
+        </div>
+        
+        <table id="tic-tac-toe-board">
+            <% for (let i = 0; i < 3; i++) { %>
+              <tr>
+                <% for (let j = 0; j < 3; j++) { %>
+                  <td><button class="tac" id="bt" data-pos="<%= `${i}-${j}` %>"></button></td>
+                <% } %>
+              </tr>
+            <% } %>
+          </table>
+
+        <form action="/logout?_method=DELETE" method="POST" style="text-align: center; margin-top: 20px;">
+            <button type="submit">Log Out</button>
+        </form>
+        <script src="JS/myJavaScript.js" defer></script>
+    </body>
+</html>

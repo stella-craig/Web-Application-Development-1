@@ -1,0 +1,86 @@
+/* CSS/registerCSS.css */
+body {
+    font-family: Arial, sans-serif; /* Use a web-safe font */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: flex-start; /* Start from the top */
+    align-items: center;
+    height: 100vh; /* Viewport height */
+    background-color: #f7f7f7; /* A neutral background color */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 60px); /* Subtract the height of the h1 element */
+    width: 100%; /* Take full width */
+}
+
+form {
+    border: 1px solid #ddd; /* A subtle border */
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 300px; /* Fixed width */
+}
+
+h1 {
+    text-align: center; /* Center the header text */
+    color: #333;
+    margin-bottom: 20px; /* Spacing below the header */
+}
+
+div {
+    margin-bottom: 10px; /* Spacing between input fields */
+    text-align: center; /* Center the div contents */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    margin-bottom: 10px; /* Space below each input */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Border included in width */
+}
+
+section {
+    text-align: center; /* Center the button */
+}
+
+button {
+    background-color: #5cb85c; /* Bootstrap's btn-success color */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #4cae4c; /* Darken the button when hovered */
+}
+
+a {
+    display: block;
+    text-align: center; /* Center the link */
+    margin-top: 10px;
+    color: #337ab7; /* Bootstrap's link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover for better UX */
+}

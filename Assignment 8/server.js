@@ -1,50 +1,108 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const bcrypt = require('bcryptjs');
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
 
-const app = express();
+const express = require('express')
+const app = express()
+const port = 3000
 
-// Middleware
-app.use(bodyParser.urlencoded({ extended: true }));
-app.set('view engine', 'ejs');
+const bcrypt = require('bcrypt')
+const passport = require('passport')
+const flash = require('express-flash')
+const session = require('express-session')
+const methodOverride = require('method-override')
 
-let users = []; // Array to store registered users
+const usrs = []
 
-app.get('/register', (req, res) => {
-    res.render('register');
-});
 
-app.get('/login', (req, res) => {
-    res.render('login');
-});
+//Creates and authenticates password
+const createPassport = require('./passportConfig') //because it is exported as initialized
+createPassport(
+    passport,
+    email => usrs.find(user => user.email === email),
+    id => usrs.find(user => user.id === id)
+) //intialized function that is initialize(passport, getUserByEmail, getUserById)
 
-app.get('/tic-tac-toe', (req, res) => {
-    // This should be secured and check for logged in users
-    res.render('tic-tac-toe');
-});
+//looks for the ejs file in the view folder
+app.set('view-engine', 'ejs')
+app.use(express.urlencoded({ extended: false }))
+//to send warnings that the password is incorrect
+app.use(flash())
+//used to save information on the server
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}))
+//calls the function from the passportConfig.js
+app.use(passport.initialize())
+app.use(passport.session())
+app.use(methodOverride('_method'))
 
-app.listen(3000, () => {
-    console.log('Server started on http://localhost:3000');
-});
+//used to check the name with is visible to the user
+app.get('/', checkAuthenticated, (req, res) => {
+    res.render('index.ejs', { name: req.user.name })
+})
 
-// ... Previous code ...
+app.get('/login', checkNotAuthenticated, (req, res) => {
+    res.render('login.ejs')
+})
 
-app.post('/register', async (req, res) => {
-    const { email, password } = req.body;
-    const hashedPassword = await bcrypt.hash(password, 10);
-    users.push({ email, password: hashedPassword });
-    res.redirect('/login');
-});
+//1. accesses the css and the js files in the public folder
+app.use(express.static('public'))
+app.use('/css', express.static(__dirname + '/CSS'))
+app.use('/JS', express.static(__dirname + '/JS'))
+app.use('/txt', express.static(__dirname + '/JS'))
 
-app.post('/login', async (req, res) => {
-    const { email, password } = req.body;
-    const user = users.find(u => u.email === email);
-    if(user && await bcrypt.compare(password, user.password)) {
-        // Here we would normally create a session and log the user in.
-        res.redirect('/tic-tac-toe');
-    } else {
-        res.redirect('/login');
+//uses post to login and send to the index.js
+app.post('/login', checkNotAuthenticated, passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+}))
+
+//renders out the register.ejs if not authenticated
+app.get('/register', checkNotAuthenticated, (req, res) => {
+    res.render('register.ejs')
+})
+app.post('/register', checkNotAuthenticated, async (req, res) => {
+    try {
+        const hashedPassword = await bcrypt.hash(req.body.password, 8)
+        usrs.push({
+            id: Date.now().toString(),
+            name: req.body.name,
+            email: req.body.email,
+            password: hashedPassword
+        })
+        res.redirect('/login')
+    } catch {
+        res.redirect('/register')
     }
-});
+    console.log(usrs)
+})
+//logs usr out
+app.delete('/logout', (req, res) => {
+    req.logOut()
+    res.redirect('/login')
+})
 
-// ... Previous code ...
+//function for verifying
+function checkAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return next()
+    }
+
+    res.redirect('/login')
+}
+//function checks authentication and redirects to index.ejs
+function checkNotAuthenticated(req, res, next) {
+    if (req.isAuthenticated()) {
+        return res.redirect('/')
+    }
+    next()
+}
+
+
+//listens on port 3000 that we created for our localhost
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+
